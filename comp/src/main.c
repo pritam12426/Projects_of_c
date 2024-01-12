@@ -5,12 +5,29 @@
 #include "./lib/user_function.h"
 
 
+#ifdef __APPLE__ || linux
+	#define PYTHON "python3"
+#elif __WIN32
+	#define PYTHON "python"
+#endif
+
+
 int main(int argc, char *argv[]) {
-	for (int i = 1; i < argc; i++) {
-		if (strEndWith(argv[i], ".c")) {
-			printf("%s\n", argv[i]);
-		}
+	if(argc != 2) return 2;
+
+	struct stat st;
+	if(stat(argv[1], &st) != false) {
+		printf("\033[1;31mFILE NOT FOUND\033[0m: { \033[1;36m%s\033[0m }\n", argv[1]);
+		return 1;
 	}
+	
+	size_t len_argv = (strlen(argv[1]) + 1);
+
+	if (strEndWith(argv[1], ".py")) {
+		char python_command[len_argv + 9];
+		sprintf(python_command, "%s %s", PYTHON, argv[1]);
+		return system(python_command);
+	}
+
 	return 0;
 }
-
