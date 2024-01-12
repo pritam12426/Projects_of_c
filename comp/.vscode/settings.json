@@ -1,0 +1,25 @@
+{
+    "cSpell.ignorePaths": [
+        "**/src/*.txt",  // the same for this one
+        "**/src/*.yaml",  // the same for this one
+        "**/.vscode/*.json",  // the same for this one
+    ],
+
+    "[html][css]": {
+		"editor.formatOnSave": false,
+		"editor.suggest.insertMode": "replace",
+	},
+    
+    "files.associations": {
+        "unistd.h": "c",
+        "stdio.h": "c",
+        "string.h": "c",
+        "README.md": "html",
+        "*.txt": "text",
+        "user_function.h": "c",
+        "stdbool.h": "c",
+        "ioctl.h": "c",
+        "stat.h": "c",
+        "stdlib.h": "c"
+    },
+}
