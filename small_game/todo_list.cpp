@@ -57,17 +57,16 @@ public:
 
 int main() {
 	ToDoList toDoList;
-	int choice;
+	int choice = 9;
 
 	do {
-		std::cout << "\n📅 Magical To-Do List Manager 🌟\n";
-		std::cout << "1. ✨ Add a Magical Task\n";
-		std::cout << "2. 📋 View the Magical Tasks\n";
-		std::cout << "3. ✅ Mark a Magical Task as Completed\n";
-		std::cout << "4. 🗑️ Remove a Magical Task\n";
-		std::cout << "5. 🚪 Exit the Magical Realm\n";
-		std::cout << "Enter your magical choice: ";
-		std::cin >> choice;
+		instruction:
+			std::cout << "2. 📋 View the Magical Tasks\n";
+			std::cout << "3. ✅ Mark a Magical Task as Completed\n";
+			std::cout << "4. 🗑️ Remove a Magical Task\n";
+			std::cout << "5. 🚪 Exit the Magical Realm\n";
+			std::cout << "Enter your magical choice: ";
+			std::cin >> choice;
 
 		switch (choice) {
 			case 1: {
@@ -106,7 +105,9 @@ int main() {
 			}
 
 			default: {
-			std::cout << "🚨 Invalid magical choice. Please choose a valid magical option. 🚨\n";
+				std::cout << "\n";
+				std::cout << "🚨 Invalid magical choice. Please choose a valid magical option. 🚨\n";
+				goto instruction;
 			}
 		}
 	} while (choice != 5);
